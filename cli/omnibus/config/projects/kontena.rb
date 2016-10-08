@@ -1,5 +1,5 @@
 #
-# Copyright 2016 YOUR NAME
+# Copyright 2016 Kontena, Inc.
 #
 # All Rights Reserved.
 #
