@@ -12,13 +12,8 @@ error_exit()
   exit 1
 }
 
-cat > /usr/bin/kontena <<EOL
-#!/bin/sh
-
-export PATH=/opt/kontena/embedded/bin:$PATH
-exec /opt/kontena/embedded/bin/kontena $@
-EOL
-chmod +x /usr/bin/kontena
+chown $USER /opt/kontena/embedded/bin
+chown $USER -R /opt/kontena/embedded/lib/ruby/gems/2.1.0
 
 echo "Thank you for installing Kontena!"
 
