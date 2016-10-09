@@ -4,7 +4,6 @@ os:
   - osx
 sudo: required
 rvm:
-  - 2.3.1
 cache: bundler
 cache:
   directories:
@@ -29,9 +28,12 @@ matrix:
       env: TEST_DIR=cli && TRAVIS_OS_NAME=linux
     - rvm: 2.2.3
       env: TEST_DIR=cli && TRAVIS_OS_NAME=linux
-  exclude:
     - rvm: 2.3.1
-      env: TRAVIS_OS_NAME=osx
+      env: TEST_DIR=cli && TRAVIS_OS_NAME=linux
+    - rvm: 2.3.1
+      env: TEST_DIR=agent && TRAVIS_OS_NAME=linux
+    - rvm: 2.3.1
+      env: TEST_DIR=server && TRAVIS_OS_NAME=linux
 script: ./build/travis/test.sh
 deploy:
   - provider: script
