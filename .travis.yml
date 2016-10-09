@@ -30,22 +30,15 @@ matrix:
       env: TEST_DIR=agent
     - rvm: 2.0.0-p648
       env: TEST_DIR=server
-    - rvm: 2.0.0-p648
-      env: TRAVIS_OS_NAME=osx
     - rvm: 2.1.8
       env: TEST_DIR=agent
     - rvm: 2.1.8
       env: TEST_DIR=server
-    - rvm: 2.1.8
-      env: TRAVIS_OS_NAME=osx
     - rvm: 2.2.3
       env: TEST_DIR=agent
     - rvm: 2.2.3
       env: TEST_DIR=server
-    - rvm: 2.2.3
-      env: TRAVIS_OS_NAME=osx
-    - rvm: 2.3.1
-      env: TRAVIS_OS_NAME=osx
+    - os: osx
 script: ./build/travis/test.sh
 deploy:
   - provider: script
