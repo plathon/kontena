@@ -39,6 +39,18 @@ matrix:
     - rvm: 2.2.3
       env: TEST_DIR=server
     - os: osx
+      rvm: 2.0.0-p648
+      env: TEST_DIR=cli
+    - os: osx
+      rvm: 2.2.3
+      env: TEST_DIR=cli
+    - os: osx
+      rvm: 2.3.1
+      env: TEST_DIR=cli
+    - os: osx
+      env: TEST_DIR=agent
+    - os: osx
+      env: TEST_DIR=server
 script: ./build/travis/test.sh
 deploy:
   - provider: script
