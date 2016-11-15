@@ -40,7 +40,7 @@ module Kontena::Launchers
       while !running?
         sleep 1
       end
-      Celluloid::Notifications.publish('ipam:start', nil)
+      Celluloid::Notifications.publish('ipam:start', info)
     end
 
     def image_exists?
@@ -85,7 +85,8 @@ module Kontena::Launchers
         'Cmd' => ["bundle", "exec", "thin", "-a", "127.0.0.1", "-p", "2275", "-e", "production", "start"],
         'Env' => [
           "NODE_ID=#{info['node_number']}",
-          "LOG_LEVEL=#{ENV['LOG_LEVEL'] || 1}"
+          "LOG_LEVEL=#{ENV['LOG_LEVEL'] || 1}",
+          "KONTENA_IPAM_SUPERNET=#{info['grid']['supernet']}",
         ],
         'HostConfig' => {
           'NetworkMode' => 'host',
